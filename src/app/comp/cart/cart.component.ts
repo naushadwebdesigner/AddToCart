@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../../services/product.service';
-import { Product } from '../../modal/product';
+import { CommonModule } from '@angular/common'; // Import CommonModule
+
 
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [],
+  imports: [ CommonModule ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -27,6 +28,15 @@ product = this.productService.getData()
 deleteItem(item: any) {
   this.product = this.product.filter(productItem => productItem !== item);
   localStorage.setItem('productData', JSON.stringify(this.product));
+}
+
+
+calculateTotalPrice(): number {
+  let totalPrice = 0;
+  for (let item of this.product) {
+    totalPrice += item.price;
+  }
+  return totalPrice;
 }
 
 

@@ -3,11 +3,13 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Product } from '../../modal/product';
 import { ProductService } from '../../services/product.service';
 import { CartComponent } from '../cart/cart.component';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [HttpClientModule, CartComponent],
+  imports: [HttpClientModule, CartComponent, CommonModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
@@ -17,6 +19,8 @@ export class ProductsComponent implements OnInit {
   httpClient = inject(HttpClient);
   productService = inject(ProductService)
   data: Product[] = [];
+
+ 
 
   ngOnInit(): void { this.fetchData() }
 
@@ -32,6 +36,10 @@ export class ProductsComponent implements OnInit {
   addToCart(product: Product): void {
     this.productService.addToCart(product);
   }
+
+  
+
+  
 
 
 

@@ -1,4 +1,5 @@
-<div class="row cartTable" style="max-width: 96%; padding-top:50px; margin: auto;">
+
+<div class="row" style="max-width: 96%; padding-top:100px; margin: auto;" >
 
 
     <table class="table-bordered" width="100%" cellspacing="0" cellpadding="0">
@@ -12,23 +13,31 @@
         </tr>
         @for (item of product; track $index) {
         <tr>
-
-
-
-
             <td> {{item.id }} </td>
-            <td> <img [src]="item.image" alt="item.title"> </td>
+            <td> <div style="text-align: center;"><img [src]="item.image" alt="item.title" style="max-height: 50px;"></div> </td>
             <td> {{item.title }} </td>
             <td> {{item.description }} </td>
-            <td width="10%" text-align="right" ><div style="text-align: right;"> {{item.price }}</div> </td>
+            <td width="10%" text-align="right" ><div style="text-align: right;"> {{item.price | currency: 'INR' }}</div> </td>
             <td width="15%" text-align="center"> <div style="text-align: center;"><button class="btn btn-danger" (click)="deleteItem(item)">X</button></div> </td>
-
-
 
 
         </tr>
         }
 
+        <tr>
+            <td></td>
+            <td>  </td>
+            <td> </td>
+            <td> <div style="text-align: right;">Total</div> </td>
+            <td width="10%" text-align="right" ><div style="text-align: right;"> {{ calculateTotalPrice() | currency: 'INR' }} </div> </td>
+            <td width="15%" text-align="center">  </td>
+        </tr>
+
+        
+
 
     </table>
+
+    
+
 </div>

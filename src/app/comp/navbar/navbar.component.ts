@@ -12,14 +12,12 @@ import { Product } from '../../modal/product';
 })
 export class NavbarComponent {
 
-
-  productService = inject(ProductService);
-  
+  productService = inject(ProductService);  
   counterCart :any = this.productService.getData().length;
 
+  productTotal: any = this.productService.getData();
 
-
-
+  
 
 
 }
