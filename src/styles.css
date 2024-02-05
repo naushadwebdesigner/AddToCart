@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+img {
+    display: block;
+    width: 100%;
+}
+
+.container {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.course_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+
