@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductService } from '../../services/product.service';
+import { Product } from '../../modal/product';
 
 @Component({
   selector: 'app-navbar',
@@ -11,11 +12,23 @@ import { ProductService } from '../../services/product.service';
 })
 export class NavbarComponent {
 
-  productService = inject(ProductService)
 
-  counterCart = this.productService.getData();
+  productService = inject(ProductService);
+  
+  counterCart :number = this.productService.getData().length;
+
+
+
+
+
+
 
 }
+
+
+
+
+
 
 
 
