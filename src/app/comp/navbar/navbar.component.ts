@@ -15,8 +15,7 @@ export class NavbarComponent {
 
   productService = inject(ProductService);
   
-  counterCart :number = this.productService.getData().length;
-
+  counterCart :any = this.productService.getData().length;
 
 
 
